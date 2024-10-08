@@ -36,11 +36,14 @@ void User::Listen()
 {
     if(listen(QHostAddress::Any,server_port)){
         qDebug() << "server listen";
+        server_port = serverPort();
+        qDebug() << server_port;
         this->info.Id = User::getId(server_port,this->info.IP);
+        emit setInfoLables(this->info.IP.toString(),server_port);
+
     }
     else
         qDebug() << "error";
-
 }
 
 void User::ConnectTo(quint16 port, QHostAddress IP)

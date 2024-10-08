@@ -5,6 +5,8 @@ bool SignalCreator::CreateSignalLinks(MainWindow *main_win,User* user){
     bool res = true;
     res = res && connect(main_win->input_win,&InputWin::Connect_Button_Clicked,user,&User::ConnectSlot);
 
+    res = res && connect(user,&User::setInfoLables,main_win,&MainWindow::setInfoLabels);
+
     res = res && connect(user,&User::ConnectionRes,main_win->input_win,&InputWin::ConnectionResSlot);
 
     res = res && connect(main_win,&MainWindow::SendButton_pressed_signal,user,&User::NewFileSendSlot);

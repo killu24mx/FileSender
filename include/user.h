@@ -17,7 +17,7 @@ class User : public QTcpServer
 {
 Q_OBJECT
 public:
-    User(QHostAddress IP,quint16 server_port);
+    User(QHostAddress IP,quint16 server_port = 0);
     User(QTcpSocket* socket);
     ~User();
 
@@ -38,6 +38,8 @@ public:
     void SendFileToUser(User* user,QString file_path);
     User* getUser(qintptr sockDS);
 
+    quint16 get_server_port(){return server_port;}
+
     static size_t getId(quint16 port,QHostAddress IP);
     User* getUserFromId(size_t id);
 
@@ -53,6 +55,7 @@ signals:
     void UserConnected(QString IP,QString id);
     void UserDisconnected(QString id);
     void stop();
+    void setInfoLables(const QString& ip,quint16 port);
 
 
 public slots:

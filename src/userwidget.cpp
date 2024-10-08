@@ -7,10 +7,11 @@ UserWidget::UserWidget(QWidget *parent) : QWidget(parent)
 
     //"fantasy"
     //"cursive"
-    QString font_name = "fantasy";
-    int font_size = 10;
+    QString font_name = "Arial";
+    int font_size = 12;
 
-    QFont font(font_name,font_size,QFont::QFont::DemiBold,false);
+    QFont font(font_name,font_size,QFont::Bold,false);
+    font.setItalic(true);
 
     ip_label->setFont(font);
     ip_label->setStyleSheet("Color:rgb(255, 255, 255)");

@@ -21,6 +21,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),ui(new Ui::MainWin
 
     selected_user_id = 0;
 
+    ui->PathTextEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
     connect(sl,&UserWidgetScrollList::SelectedUserChanged,this,&MainWindow::SelectedUserChanged);
 }
 
@@ -29,6 +31,12 @@ MainWindow::~MainWindow()
     delete ui;
     if(input_win) delete input_win;
     delete progress_dialog;
+}
+
+void MainWindow::setInfoLabels(const QString &ip, quint16 port)
+{
+    ui->portlabel->setText("Port:"+ QString::number(port));
+    ui->iplabel->setText("IP:"+ ip);
 }
 
 void MainWindow::addUserToScrollList(QString IP, QString id)

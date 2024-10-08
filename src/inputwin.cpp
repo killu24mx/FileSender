@@ -15,8 +15,8 @@ InputWin::~InputWin()
 
 void InputWin::ConnectionResSlot(QString status,bool res)
 {
-      ui->ConnectRes->setStyleSheet(res ? "color : green" : "color : red");
-      ui->ConnectRes->setText(status);
+    ui->ConnectRes->setStyleSheet(res ? "color : green" : "color : red");
+    ui->ConnectRes->setText(status);
 }
 
 

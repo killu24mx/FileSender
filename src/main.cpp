@@ -24,17 +24,18 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     MainWindow win;
 
-    win.show();
-    quint16 port  = (quint16)QInputDialog::getInt(&win, QString::fromUtf8("Input port"),
-                                                QString::fromUtf8("Port:"));
 
-    win.setWindowTitle(QString::number(port));
-    qDebug() << port;
-    qDebug() << getLocalIP();
-    User user(getLocalIP(),port);
+    User user(getLocalIP());
+
+
+
 
     SignalCreator::CreateSignalLinks(&win,&user);
     ThreadController thc(&win,&user);
+
+
+    win.show();
+
 
 
 

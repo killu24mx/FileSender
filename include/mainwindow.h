@@ -21,10 +21,12 @@ public:
     void design();
     friend class SignalCreator;
 
+
 signals:
     void SendButton_pressed_signal(QString file_path,QString id);
 
 public slots:
+    void setInfoLabels(const QString& ip,quint16 port);
 
     void addUserToScrollList(QString IP,QString id);
     void SelectedUserChanged(size_t new_selected_user_id){
