@@ -24,20 +24,12 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     MainWindow win;
 
-
     User user(getLocalIP());
-
-
-
 
     SignalCreator::CreateSignalLinks(&win,&user);
     ThreadController thc(&win,&user);
 
-
     win.show();
-
-
-
 
     return app.exec();
 }
